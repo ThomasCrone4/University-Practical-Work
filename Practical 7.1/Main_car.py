@@ -3,7 +3,7 @@ from Class_car import car
 import datetime
 
 def main():
-    my_car1 = car("2004","Toyota", 20, "Red", "SUV")
+    my_car1 = car("Toyota", "2004","Commuter", "Red", "SUV")
     while my_car1.get_speed() < 20:
         my_car1.accelerate()
         print (f" car1's speed is: {my_car1.get_speed()}")

@@ -4,15 +4,11 @@ class CarManager():
 
     def __init__(self):
         self.__cars = []
-        with open("C:/Users/thoma/OneDrive - Newcastle University/Practicals/Programming 1034/Practical 7.1/cars.csv", "r") as f:
+        with open(r"C:\Users\thoma\OneDrive - Newcastle University\Practicals\University-Practicals\Practical 7.1\cars.csv", "r") as f:
             for line in f:
                 parts = line.strip().split(",")
-                if len(parts) == 5:  # Ensure there are exactly 5 parts
-                    self.__cars.append(car(parts[0], parts[1], parts[2], parts[3], parts[4]))
-                else:
-                    print(f"Warning: Skipping line due to incorrect format - {line.strip()}")
-                """parts = line.strip().split(",")
-                self.__cars.append(car(parts[0],parts[1],parts[2],parts[3], parts[4]))"""
+                if len(parts) == 5:  # Ensure correct number of parts
+                    self.__cars.append(car(parts[0], parts[1], parts[2], parts[3], parts[4])) 
 
     def get_cars(self):
         return self.__cars
@@ -32,5 +28,16 @@ class CarManager():
         return valid_cars
     
     def add_to_file(self, make, year, model, category, color):
-        with open(f"C:/Users/thoma/OneDrive - Newcastle University/Practicals/Programming 1034/Practical 7.1/cars.csv", "a") as f:
+        with open(r"C:\Users\thoma\OneDrive - Newcastle University\Practicals\University-Practicals\Practical 7.1\cars.csv", "a") as f:
             f.write(f"{make}, {year}, {model}, {color}, {category}\n")
+
+    def remove_from_file(self, remove_car):
+        with open(r"C:\Users\thoma\OneDrive - Newcastle University\Practicals\University-Practicals\Practical 7.1\cars.csv", "r") as f:
+            read_data = f.readlines()
+
+        with open(r"C:\Users\thoma\OneDrive - Newcastle University\Practicals\University-Practicals\Practical 7.1\cars.csv", "w") as f:
+            for line in read_data:
+                if remove_car not in line:
+                    f.write(line)
+            
+            

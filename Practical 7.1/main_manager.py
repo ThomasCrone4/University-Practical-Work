@@ -20,5 +20,8 @@ def main():
     my_car_manager.add_to_file("Lambo", "2003", "Fast", "Red", "Sports")
     print(my_car_manager.get_cars())
 
+    my_car_manager.remove_from_file("Lambo")
+    print(my_car_manager.get_cars())
+
 # Run the main method
 main()

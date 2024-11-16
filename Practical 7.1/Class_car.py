@@ -99,3 +99,14 @@ class car():
                           colour = self.get_color(),
                           category = self.get_category())
 
+    def __eq__(self, other):
+        if isinstance(other, car):
+            return (self.make == other.make and
+                self.year == other.year and 
+                self.model == other.model and 
+                self.color == other.color and 
+                self.category == other.category)
+        return False
+    
+    def __hash__(self):
+        return hash((self.make, self.year, self.model, self.color, self.category))
